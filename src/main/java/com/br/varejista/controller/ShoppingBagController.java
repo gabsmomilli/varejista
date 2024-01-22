@@ -35,13 +35,13 @@ public class ShoppingBagController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/{products}")
+    @GetMapping("/find-all-products/{products}")
     public List<ShoppingBag> findAllByShoppingBagProducts(@PathVariable("products") Product products){
      return service.findAllByShoppingBagProducts(products);
     }
 
-    @GetMapping("/{clientId}")
-    public List<ShoppingBag> findAllByClientId(@PathVariable("clientId") Integer clientId) {
-        return service.findAllByClientId(clientId);
-    }
+    //@GetMapping("/{clientId}")
+   // public List<ShoppingBag> findAllByClientId(@PathVariable("clientId") Integer clientId) {
+    //    return service.findAllByClientId(clientId);
+    //}
 }
