@@ -3,7 +3,7 @@
 ## Proposta: 
 - Criar uma API de venda de produtos, mais expecificamente calçados.
 - Funcionário deve conseguir incluir/alterar/listar/cancelar um cupom para o cliente.
-- 
+  
 O CRUD contem as seguintes entidades:
 - Loja
 - Carrinho
