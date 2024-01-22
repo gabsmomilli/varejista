@@ -5,7 +5,7 @@ import lombok.*;
 
 import java.util.Set;
 @Entity
-@Table(name ="shoppig_bag")
+@Table(name ="shopping_bag")
 @Getter
 @Builder
 @EqualsAndHashCode(of = "id")

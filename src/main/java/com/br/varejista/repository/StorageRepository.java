@@ -1,24 +1,23 @@
 package com.br.varejista.repository;
 
-import com.br.varejista.model.Employee;
-import com.br.varejista.model.Product;
-import com.br.varejista.model.Storage;
+import com.br.varejista.model.*;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface StorageRepository extends JpaRepository<Storage, Integer> {
 
-    @Query("SELECT c FROM Storage c WHERE c.products like :products")
-    List<Storage> findAllByStorageProducts(@Param("products") Product products);
+    @Query("SELECT s FROM Storage s JOIN s.products p WHERE :product MEMBER OF s.products")
+    List<Storage> findAllByStorageProducts(@Param("product") Product product);
 
-    @Query("SELECT c FROM Storage c WHERE c.employees like :employees")
-    List<Storage> findAllByStorageEmployee(@Param("products") Employee employees);
+    @Query("SELECT s FROM Storage s JOIN s.employees WHERE :employees MEMBER OF s.employees")
+    List<Storage> findAllByStorageEmployees(@Param("employees") Employee employees);
 
-    @Query("SELECT c FROM Storage c WHERE c.cpnj like :cpnj")
-    List<Storage> findAllByStorageCpnj(@Param("cpnj") String cpnj);
+    @Query("SELECT c FROM Storage c WHERE c.cnpj like :cnpj")
+    List<Storage> findAllByStorageCpnj(@Param("cnpj") String cnpj);
 
     @Query("SELECT c FROM Storage c WHERE c.franchise like :franchise")
     List<Storage> findAllByStorageFranchise(@Param("franchise") String franchise);

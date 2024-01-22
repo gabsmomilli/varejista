@@ -16,7 +16,7 @@ public class Storage {
     @Id
     @Column(name = "stg_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "shopping_bag_sequence")
+    @SequenceGenerator(name = "storage_sequence")
     private Integer id;
 
     @OneToMany
@@ -27,7 +27,7 @@ public class Storage {
 
     @OneToMany
     @JoinTable(name = "storage_employee",
-            joinColumns = @JoinColumn(name = "sth_id"),
+            joinColumns = @JoinColumn(name = "stg_id"),
             inverseJoinColumns = @JoinColumn(name = "emp_id"))
     private Set<Employee> employees;
 

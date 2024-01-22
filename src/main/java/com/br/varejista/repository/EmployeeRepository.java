@@ -16,7 +16,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     @Query("SELECT c FROM Employee c WHERE c.cpf like :cpf")
     List<Employee> findAllByEmployeeCpf(@Param("cpf") String cpf);
 
-    @Query("SELECT c FROM Employee c WHERE c.salary like :salary")
+    @Query("SELECT c FROM Employee c WHERE c.salary = :salary")
     List<Employee> findAllByEmployeeSalary(@Param("salary") Double salary);
     @Query("SELECT c FROM Employee c WHERE c.address like :address")
     List<Employee> findAllByEmployeeAddress(@Param("address") String address);
