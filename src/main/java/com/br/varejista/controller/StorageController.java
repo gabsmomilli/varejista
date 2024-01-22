@@ -35,27 +35,27 @@ public class StorageController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/{products}")
+    @GetMapping("/find-all-products/{products}")
     public List<Storage> findAllByStorageProducts(@PathVariable("products") Product products){
         return service.findAllByStorageProducts(products);
     }
 
-    @GetMapping("/{employees}")
+    @GetMapping("/find-all-employees/{employees}")
     public List<Storage> findAllByStorageEmployees(@PathVariable("employees") Employee employees){
         return service.findAllByStorageEmployees(employees);
     }
 
-    @GetMapping("/{cnpj}")
+    @GetMapping("/find-by-cnpj/{cnpj}")
     public List<Storage> findAllByStorageCnpj(@PathVariable("cnpj") String cnpj){
         return service.findAllByStorageCnpj(cnpj);
     }
 
-    @GetMapping("/{franchise}")
+    @GetMapping("/find-by-franchise/{franchise}")
     public List<Storage> findAllByStorageFranchise(@PathVariable("franchise") String franchise){
         return service.findAllByStorageFranchise(franchise);
     }
 
-    @GetMapping("/{address}")
+    @GetMapping("/find-by-address/{address}")
     public List<Storage> findAllByStorageAddress(@PathVariable("address") String address){
         return service.findAllByStorageAddress(address);
     }

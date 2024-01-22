@@ -36,37 +36,37 @@ public class ClientController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/find-by-name/{name}")
     public List<Client> findAllByClientName(@PathVariable("name") String name){
         return service.findAllByClientName(name);
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/find-by-cpf/{cpf}")
     public List<Client> findAllByClientCpf(@PathVariable("cpf") String cpf){
         return service.findAllByClientCpf(cpf);
     }
 
-    @GetMapping("/{phone}")
+    @GetMapping("/find-by-phone/{phone}")
     public List<Client> findAllByClientPhone(@PathVariable("phone") String phone){
         return service.findAllByClientPhone(phone);
     }
 
-    @GetMapping("/{email}")
+    @GetMapping("/find-by-email/{email}")
     public List<Client> findAllByClientEmail(@PathVariable("email") String email){
         return service.findAllByClientEmail(email);
     }
 
-    @GetMapping("/{birth}")
+    @GetMapping("/find-by-birth/{birth}")
     public List<Client> findAllByClientBirth(@PathVariable("birth") LocalDate birth){
         return service.findAllByClientBirth(birth);
     }
 
-    @GetMapping("/{gender}")
+    @GetMapping("/find-by-gender/{gender}")
     public List<Client> findAllByClientGender(@PathVariable("gender") String gender){
         return service.findAllByClientGender(gender);
     }
 
-    @GetMapping("/{cupom}")
+    @GetMapping("/find-by-cupom_id/{cupomId}")
     public List<Client> findAllByClientCupom(@PathVariable("cupomId") Cupom cupomId){
         return service.findAllByClientCupom(cupomId);
     }

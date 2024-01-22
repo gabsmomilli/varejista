@@ -33,22 +33,22 @@ public class EmployeeController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/find-by-name/{name}")
     public List<Employee> findAllByEmployeeName(@PathVariable("name") String name){
         return service.findAllByEmployeeName(name);
     }
 
-    @GetMapping("/{cpf}")
+    @GetMapping("/find-by-cpf/{cpf}")
     public List<Employee> findAllByEmployeeCpf(@PathVariable("cpf") String cpf){
         return service.findAllByEmployeeCpf(cpf);
     }
 
-    @GetMapping("/{salary}")
+    @GetMapping("/find-by-salary/{salary}")
     public List<Employee> findAllByEmployeeSalary(@PathVariable("salary") Double salary){
         return service.findAllByEmployeeSalary(salary);
     }
 
-    @GetMapping("/{address}")
+    @GetMapping("/find-by-address/{address}")
     public List<Employee> findAllByEmployeeAddress(@PathVariable("address") String address){
         return service.findAllByEmployeeAddress(address);
     }

@@ -34,42 +34,42 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/{description}")
+    @GetMapping("/find-by-description/{description}")
     public List<Product> findAllByProductName(@PathVariable("description") String description){
         return service.findAllByProductName(description);
     }
 
-    @GetMapping("/{price}")
+    @GetMapping("/find-by-price/{price}")
     public List<Product> findAllByProductPrice(@PathVariable("price") Double price){
         return service.findAllByProductPrice(price);
     }
 
-    @GetMapping("/{size}")
+    @GetMapping("/find-by-price/{size}")
     public List<Product> findAllByProductSize(@PathVariable("size") Integer size){
         return service.findAllByProductSize(size);
     }
 
-    @GetMapping("/{quantityInStock}")
+    @GetMapping("/find-by-quantity-in-stock/{quantityInStock}")
     public List<Product> findAllByProductQuantityInStock(@PathVariable("quantityInStock") Integer quantityInStock){
         return service.findAllByProductQuantityInStock(quantityInStock);
     }
 
-    @GetMapping("/{color}")
+    @GetMapping("/find-by-color/{color}")
     public List<Product> findAllByProductColor(@PathVariable("color") String color){
         return service.findAllByProductColor(color);
     }
 
-    @GetMapping("/{category}")
+    @GetMapping("/find-by-category/{category}")
     public List<Product> findAllByProductCategory(@PathVariable("price") String category){
         return service.findAllByProductCategory(category);
     }
 
-    @GetMapping("/{brand}")
+    @GetMapping("/find-by-brand/{brand}")
     public List<Product> findAllByProductBrand(@PathVariable("brand") String brand){
         return service.findAllByProductBrand(brand);
     }
 
-    @GetMapping("/{dateRegister}")
+    @GetMapping("/find-by-data-register/{dateRegister}")
     public List<Product> findAllByProductDateRegister(@PathVariable("dateRegister") LocalDate dateRegister){
         return service.findAllByProductDateRegister(dateRegister);
     }

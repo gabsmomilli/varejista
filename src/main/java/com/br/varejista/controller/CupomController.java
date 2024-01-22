@@ -34,17 +34,17 @@ public class CupomController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/find-by-name/{name}")
     public List<Cupom> findAllByCupomName(@PathVariable("name") String name){
         return service.findAllByCupomName(name);
     }
 
-    @GetMapping("/{value}")
+    @GetMapping("/find-by-value/{value}")
     public List<Cupom> findAllByCupomValue(@PathVariable("value") Double value){
         return service.findAllByCupomValue(value);
     }
 
-    @GetMapping("/{description}")
+    @GetMapping("/find-by-description/{description}")
     public List<Cupom> findAllByCupomDescription(@PathVariable("description") String description){
         return service.findAllByCupomDescription(description);
     }
