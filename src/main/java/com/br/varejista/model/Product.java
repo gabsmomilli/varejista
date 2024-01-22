@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.awt.image.BufferedImage;
+import java.time.LocalDate;
+
 @Entity
 @Table(name ="product")
 @Getter
@@ -36,4 +38,13 @@ public class Product {
 
     @Column(name = "prd_color")
     private String color;
+
+    @Column(name = "prd_category")
+    private String category;
+
+    @Column(name = "prd_brand")
+    private String brand;
+
+    @Column(name = "prd_date_register")
+    private LocalDate dateRegister;
 }

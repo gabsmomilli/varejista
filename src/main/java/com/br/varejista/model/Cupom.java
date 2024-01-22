@@ -6,6 +6,7 @@ import lombok.*;
 @Entity
 @Table(name ="cupom")
 @Getter
+@Setter
 @Builder
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
@@ -14,7 +15,7 @@ public class Cupom {
     @Id
     @Column(name = "cpm_id")
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "shopping_bag_sequence")
+    @SequenceGenerator(name = "cupom_sequence")
     private Integer id;
 
     @Column(name = "cpm_name")
@@ -25,4 +26,6 @@ public class Cupom {
 
     @Column(name = "cpm_description")
     private String description;
+
+
 }

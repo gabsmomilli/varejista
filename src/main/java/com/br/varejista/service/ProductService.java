@@ -1,6 +1,8 @@
 package com.br.varejista.service;
 
 import com.br.varejista.model.Product;
+
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ProductService extends GenericService<Product>{
@@ -16,4 +18,10 @@ public interface ProductService extends GenericService<Product>{
     List<Product> findAllByProductQuantityInStock(final Integer quantityInStock);
 
     List<Product> findAllByProductColor(final String cor);
+
+    List<Product> findAllByProductCategory(final String category);
+
+    List<Product> findAllByProductBrand(final String brand);
+
+    List<Product> findAllByProductDateRegister(final LocalDate dateRegister);
 }
