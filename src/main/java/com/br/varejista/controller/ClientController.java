@@ -66,6 +66,11 @@ public class ClientController {
         return service.findAllByClientGender(gender);
     }
 
+    @GetMapping("/{cupom}")
+    public List<Client> findAllByClientCupom(@PathVariable("cupomId") Cupom cupomId){
+        return service.findAllByClientCupom(cupomId);
+    }
+
     @PutMapping("{clientId}/add-coupon")
     public ResponseEntity<?> addCoupon(@PathVariable Integer clientId, @RequestParam Cupom coupon){
         service.addCoupon(clientId, coupon);
