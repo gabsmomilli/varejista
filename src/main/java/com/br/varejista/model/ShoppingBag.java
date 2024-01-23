@@ -29,10 +29,6 @@ public class ShoppingBag {
     @JoinColumn(name = "cln_id", referencedColumnName = "cln_id")
     private Client client;
 
-    @OneToOne
-    @JoinColumn(name = "cpm_id", referencedColumnName = "cpm_id")
-    private Cupom cupom;
-
     @Column(name = "shp_total_price")
     private Double totalPrice;
 

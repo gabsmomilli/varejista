@@ -1,9 +1,6 @@
 package com.br.varejista.repository;
 
 import com.br.varejista.model.Client;
-import com.br.varejista.model.Cupom;
-import com.br.varejista.model.Product;
-import com.br.varejista.model.Storage;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -33,6 +30,4 @@ public interface ClientRepository extends JpaRepository<Client, Integer> {
     @Query("SELECT c FROM Client c WHERE c.gender like :gender")
     List<Client> findAllByClientGender(@Param("gender") String gender);
 
-    @Query("SELECT s FROM Client s JOIN s.cupomId p WHERE s.cupomId = :cupomId ")
-    List<Client> findAllByClientCupom(@Param("cupom") Cupom cupomId);
 }

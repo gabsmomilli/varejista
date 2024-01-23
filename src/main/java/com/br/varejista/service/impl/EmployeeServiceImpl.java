@@ -1,11 +1,9 @@
 package com.br.varejista.service.impl;
 
-import com.br.varejista.model.Client;
 import com.br.varejista.model.Employee;
 import com.br.varejista.repository.EmployeeRepository;
 import com.br.varejista.service.EmployeeService;
 import com.br.varejista.validator.Operation;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

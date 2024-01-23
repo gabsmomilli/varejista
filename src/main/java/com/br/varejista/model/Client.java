@@ -38,7 +38,4 @@ public class Client {
     @Column(name = "cln_gender")
     private String gender;
 
-    @OneToOne
-    @JoinColumn(name = "cpm_id", referencedColumnName = "cpm_id")
-    private Cupom cupomId;
 }

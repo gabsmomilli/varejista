@@ -40,8 +40,4 @@ public class ShoppingBagController {
      return service.findAllByShoppingBagProducts(products);
     }
 
-    //@GetMapping("/{clientId}")
-   // public List<ShoppingBag> findAllByClientId(@PathVariable("clientId") Integer clientId) {
-    //    return service.findAllByClientId(clientId);
-    //}
 }

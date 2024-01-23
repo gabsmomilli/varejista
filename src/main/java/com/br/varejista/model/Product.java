@@ -2,8 +2,6 @@ package com.br.varejista.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.awt.image.BufferedImage;
 import java.time.LocalDate;
 
 @Entity

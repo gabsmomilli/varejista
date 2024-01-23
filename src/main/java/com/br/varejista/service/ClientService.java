@@ -1,9 +1,6 @@
 package com.br.varejista.service;
 
 import com.br.varejista.model.Client;
-import com.br.varejista.model.Cupom;
-import com.br.varejista.repository.ClientRepository;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -23,7 +20,4 @@ public interface ClientService extends GenericService<Client>{
 
     List<Client> findAllByClientGender(final String gender);
 
-    List<Client> findAllByClientCupom(final Cupom cupom);
-
-    void addCoupon(Integer clientId, Cupom newCupomId);
 }

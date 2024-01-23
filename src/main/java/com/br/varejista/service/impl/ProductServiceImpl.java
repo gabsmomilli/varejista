@@ -1,12 +1,9 @@
 package com.br.varejista.service.impl;
 
-import com.br.varejista.model.Client;
 import com.br.varejista.model.Product;
 import com.br.varejista.repository.ProductRepository;
 import com.br.varejista.service.ProductService;
 import com.br.varejista.validator.Operation;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

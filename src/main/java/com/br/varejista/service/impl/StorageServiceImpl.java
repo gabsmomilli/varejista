@@ -6,12 +6,10 @@ import com.br.varejista.model.Storage;
 import com.br.varejista.repository.StorageRepository;
 import com.br.varejista.service.StorageService;
 import com.br.varejista.validator.Operation;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
