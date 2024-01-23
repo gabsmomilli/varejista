@@ -26,6 +26,9 @@ public class Storage {
     private Set<Product> products;
 
     @Column(name = "stg_name")
+    private String name;
+
+    @Column(name = "stg_cpj")
     private String cnpj;
 
     @Column(name = "stg_franchise")

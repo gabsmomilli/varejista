@@ -9,6 +9,8 @@ public interface StorageService extends GenericService<Storage>{
 
     List<Storage> findAllByStorageProducts(final Product product);
 
+    List<Storage> findAllByStorageName(final String name);
+
     List<Storage> findAllByStorageCnpj(final String cnpj);
 
     List<Storage> findAllByStorageFranchise(final String franchise);

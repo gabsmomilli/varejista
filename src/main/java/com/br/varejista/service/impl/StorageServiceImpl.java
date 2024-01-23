@@ -37,6 +37,12 @@ public class StorageServiceImpl implements StorageService {
     }
 
     @Override
+    public List<Storage> findAllByStorageName(String name) {
+        return repository.findAllByStorageName(name);
+    }
+
+
+    @Override
     public List<Storage> findAllByStorageCnpj(String cnpj) {
         return repository.findAllByStorageCpnj(cnpj);
     }
