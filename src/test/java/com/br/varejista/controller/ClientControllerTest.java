@@ -2,6 +2,7 @@ package com.br.varejista.controller;
 
 import com.br.varejista.model.Client;
 import com.br.varejista.service.ClientService;
+import com.br.varejista.Utils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,13 +17,13 @@ import org.springframework.http.ResponseEntity;
 import java.time.LocalDate;
 import java.util.Collections;
 import java.util.List;
-import java.util.Locale;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
-class ClientControllerTest {
+class ClientControllerTest extends Utils {
     @Mock
     private ClientService clientService;
 
@@ -104,8 +105,11 @@ class ClientControllerTest {
         assertEquals(expectedClients, actualClients);
     }
 
-
-    public Client makeClient(){
-        return new Client(1,"Gabi","1234567890","129813245","gabsmomilli@gmail.com", LocalDate.now(), "F");
+    @Test
+    void FindAllByClientEmail() {
+        List<Client> expectedClients = Collections.singletonList(makeClient());
+        when(clientService.findAllByClientEmail(any())).thenReturn(expectedClients);
+        List<Client> actualClients = clientController.findAllByClientEmail(any());
+        assertEquals(expectedClients, actualClients);
     }
 }

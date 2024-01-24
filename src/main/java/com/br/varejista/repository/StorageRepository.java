@@ -16,7 +16,7 @@ public interface StorageRepository extends JpaRepository<Storage, Integer> {
     List<Storage> findAllByStorageName(@Param("name") String name);
 
     @Query("SELECT c FROM Storage c WHERE c.cnpj like :cnpj")
-    List<Storage> findAllByStorageCpnj(@Param("cnpj") String cnpj);
+    List<Storage> findAllByStorageCnpj(@Param("cnpj") String cnpj);
 
     @Query("SELECT c FROM Storage c WHERE c.franchise like :franchise")
     List<Storage> findAllByStorageFranchise(@Param("franchise") String franchise);

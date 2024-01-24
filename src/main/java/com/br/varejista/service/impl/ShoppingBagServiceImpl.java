@@ -33,11 +33,6 @@ public class ShoppingBagServiceImpl implements ShoppingBagService {
     }
 
     @Override
-    public void deleteByClientId(Integer id) {
-        repository.findAllByClientId(id);
-    }
-
-    @Override
     public List<ShoppingBag> findAllByShoppingBagProducts(Product products) {
         return repository.findAllByShoppingBagProducts(products);
     }

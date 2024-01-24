@@ -2,6 +2,7 @@ package com.br.varejista.controller;
 
 import com.br.varejista.model.Product;
 import com.br.varejista.service.ProductService;
+import com.br.varejista.Utils;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -22,7 +23,7 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class ProductControllerTest {
+class ProductControllerTest extends Utils {
 
     @Mock
     private ProductService service;
@@ -32,7 +33,7 @@ class ProductControllerTest {
 
     @BeforeEach
     void setUp() {
-        MockitoAnnotations.openMocks(ClientControllerTest.class);
+        MockitoAnnotations.openMocks(ProductControllerTest.class);
     }
 
     @Test
@@ -48,7 +49,7 @@ class ProductControllerTest {
     void delete() {
         ResponseEntity response = controller.delete(1);
         assertEquals(HttpStatus.OK, response.getStatusCode());
-        Mockito.verify(controller, times(1)).delete(1);
+        Mockito.verify(service, times(1)).delete(1);
     }
 
     @Test
@@ -56,7 +57,7 @@ class ProductControllerTest {
         String name = "Scarpin";
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductName(name)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductName(name);
+        List<Product> actualProduct = controller.findAllByProductName(name);
         assertEquals(expectedProduct, actualProduct);
     }
 
@@ -65,7 +66,7 @@ class ProductControllerTest {
         String description = "Material sem origem animal";
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductDescription(description)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductDescription(description);
+        List<Product> actualProduct = controller.findAllByProductDescription(description);
         assertEquals(expectedProduct, actualProduct);
     }
 
@@ -74,7 +75,7 @@ class ProductControllerTest {
         Double price = 300.0;
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductPrice(price)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductPrice(price);
+        List<Product> actualProduct = controller.findAllByProductPrice(price);
         assertEquals(expectedProduct, actualProduct);
     }
 
@@ -83,7 +84,7 @@ class ProductControllerTest {
         Integer size = 36;
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductSize(size)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductSize(size);
+        List<Product> actualProduct = controller.findAllByProductSize(size);
         assertEquals(expectedProduct, actualProduct);
     }
 
@@ -92,7 +93,7 @@ class ProductControllerTest {
         Integer quantityInStock = 1;
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductQuantityInStock(quantityInStock)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductQuantityInStock(quantityInStock);
+        List<Product> actualProduct = controller.findAllByProductQuantityInStock(quantityInStock);
         assertEquals(expectedProduct, actualProduct);
     }
 
@@ -101,37 +102,34 @@ class ProductControllerTest {
         String color = "Preto";
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductColor(color)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductColor(color);
+        List<Product> actualProduct = controller.findAllByProductColor(color);
         assertEquals(expectedProduct, actualProduct);
     }
 
+    @Test
     void findAllByProductCategory() {
         String category = "Salto";
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductCategory(category)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductCategory(category);
+        List<Product> actualProduct = controller.findAllByProductCategory(category);
         assertEquals(expectedProduct, actualProduct);
     }
 
+    @Test
     void findAllByProductBrand() {
         String brand = "Arezzo";
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductBrand(brand)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductBrand(brand);
+        List<Product> actualProduct = controller.findAllByProductBrand(brand);
         assertEquals(expectedProduct, actualProduct);
     }
 
+    @Test
     void findAllByProductDateRegister() {
         LocalDate dateRegister = LocalDate.of(2024, 1, 23);
         List<Product> expectedProduct = Collections.singletonList(makeProduct());
         when(service.findAllByProductDateRegister(dateRegister)).thenReturn(expectedProduct);
-        List<Product> actualProduct = service.findAllByProductDateRegister(dateRegister);
+        List<Product> actualProduct = controller.findAllByProductDateRegister(dateRegister);
         assertEquals(expectedProduct, actualProduct);
-    }
-
-    public Product makeProduct(){
-        return new Product(1,"Scarpin","Material sem origem animal", 300.0, 36,
-                1, "Preto", "Salto", "Arezzo",
-                LocalDate.of(2024, 1, 23));
     }
 }
