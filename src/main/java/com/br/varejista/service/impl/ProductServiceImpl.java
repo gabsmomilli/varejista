@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.List;
-
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -73,5 +73,24 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> findAllByProductDateRegister(LocalDate dateRegister) {
         return repository.findAllByProductDateRegister(dateRegister);
+    }
+
+    @Override
+    public List<Product> findAllByCombinedFilter(String name, String description, Double price,
+                                                 Integer size, Integer quantityInStock, String color,
+                                                 String category, String brand, LocalDate dateRegister) {
+        List<Product> products = repository.findAll();
+
+        return products.stream().filter(
+                product ->
+                        (name == null || product.getName().equals(name)) &&
+                        (description == null || product.getDescription().equals(description)) &&
+                        (price == null || product.getPrice().equals(price)) &&
+                                (size == null || product.getSize().equals(size)) &&
+                                        (quantityInStock == null || product.getQuantityInStock().equals(quantityInStock)) &&
+                                        (color == null || product.getColor().equals(color)) &&
+                                                (category == null || product.getCategory().equals(category)) &&
+                                                        (brand == null || product.getBrand().equals(brand)) &&
+                                                                (dateRegister == null || product.getDateRegister().equals(dateRegister))).collect(Collectors.toList());
     }
 }

@@ -37,5 +37,4 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query("SELECT c FROM Product c WHERE c.dateRegister = :dateRegister")
     List<Product> findAllByProductDateRegister(@Param("dateRegister") LocalDate dateRegister);
-
 }

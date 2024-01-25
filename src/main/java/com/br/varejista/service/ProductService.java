@@ -24,4 +24,8 @@ public interface ProductService extends GenericService<Product>{
     List<Product> findAllByProductBrand(final String brand);
 
     List<Product> findAllByProductDateRegister(final LocalDate dateRegister);
+
+    List<Product> findAllByCombinedFilter(String name, String description, Double price,
+                                          Integer size, Integer quantityInStock, String color,
+                                          String category, String brand, LocalDate dateRegister);
 }
