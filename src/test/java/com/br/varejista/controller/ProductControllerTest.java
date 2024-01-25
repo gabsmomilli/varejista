@@ -132,4 +132,21 @@ class ProductControllerTest extends Utils {
         List<Product> actualProduct = controller.findAllByProductDateRegister(dateRegister);
         assertEquals(expectedProduct, actualProduct);
     }
+
+    @Test
+    void findAllByProductWithCombinedFilter() {
+        List<Product> expectedProduct = Collections.singletonList(makeProduct());
+
+        when(service.findAllByCombinedFilter(
+                makeProduct().getName(), makeProduct().getDescription(), makeProduct().getPrice(), makeProduct().getSize(),
+                makeProduct().getQuantityInStock(), makeProduct().getColor(), makeProduct().getCategory(),
+                makeProduct().getBrand(), makeProduct().getDateRegister()
+        )).thenReturn(expectedProduct);
+
+        List<Product> actualProduct = controller.findAllByProductWithCombinedFilter(makeProduct().getName(), makeProduct().getDescription(), makeProduct().getPrice(), makeProduct().getSize(),
+                makeProduct().getQuantityInStock(), makeProduct().getColor(), makeProduct().getCategory(),
+                makeProduct().getBrand(), makeProduct().getDateRegister());
+
+        assertEquals(expectedProduct, actualProduct);
+    }
 }

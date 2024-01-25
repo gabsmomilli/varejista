@@ -130,4 +130,49 @@ class ProductServiceImplTest extends Utils {
         assertFalse(products.isEmpty());
         verify(repository, times(1)).findAllByProductDateRegister(any());
     }
+
+    @Test
+    void findAllByCombinedFilterWithoutMatchReturn() {
+        Product product1 = makeProduct();
+        Product product2 = makeProduct();
+        Product product3 = makeProduct();
+
+        product1.setName("AirMax");
+        product2.setColor("Azul");
+        product3.setSize(37);
+
+        when(repository.findAll()).thenReturn(Arrays.asList(product1,product2,product3));
+
+        List<Product> products = productService.findAllByCombinedFilter(product1.getName(), product1.getDescription(),
+                product1.getPrice(), product1.getSize(), product1.getQuantityInStock(), "Roxo",
+                product1.getCategory(),product1.getBrand(),product1.getDateRegister());
+
+        assertEquals(products.size(), 0);
+        verify(repository, times(1)).findAll();
+    }
+
+    @Test
+    void findAllByCombinedFilterWithReturn() {
+        Product product1 = makeProduct();
+        Product product2 = makeProduct();
+        Product product3 = makeProduct();
+
+        product1.setName("AirMax");
+        product1.setColor("Azul");
+        product1.setSize(37);
+
+        product2.setSize(37);
+        product2.setColor("Rosa");
+        product2.setName("AirMax");
+
+        when(repository.findAll()).thenReturn(Arrays.asList(product1,product2,product3));
+
+        List<Product> products = productService.findAllByCombinedFilter(product1.getName(), product1.getDescription(),
+                product1.getPrice(), product1.getSize(), product1.getQuantityInStock(), "Azul",
+                product1.getCategory(),product1.getBrand(),product1.getDateRegister());
+
+        assertEquals(products.size(), 1);
+        assertEquals(products.get(0).getName(), "AirMax");
+        verify(repository, times(1)).findAll();
+    }
 }

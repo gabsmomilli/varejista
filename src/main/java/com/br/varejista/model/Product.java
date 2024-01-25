@@ -7,6 +7,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name ="product")
 @Getter
+@Setter
 @Builder
 @EqualsAndHashCode(of = "id")
 @NoArgsConstructor
