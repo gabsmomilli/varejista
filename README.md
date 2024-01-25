@@ -12,7 +12,7 @@ Dentro da entidade Produto, é oferecida uma funcionalidade robusta de filtragem
 ## Configuração
 
 1. Clone o repositório.
-2. Configure as propriedades do banco de dados no arquivo `src/main/resources/application.properties`.
+2. Configure as propriedades do banco de dados no arquivo `src/main/resources/application.properties`
 3. Execute a aplicação.
 
 ## Estrutura do Projeto
