@@ -55,6 +55,8 @@ O sistema possui cerca de 72% das classes testadas e 80% das linhas cobertas.
 
 Este projeto utiliza Swagger para documentar e testar a API RESTful. 
 
-Nesta documentacao consta todas as rotas POST, GET e DELETE do projeto.
+Nesta documentação consta todas as rotas POST, GET e DELETE do projeto.
 
 A documentação interativa pode ser acessada através do Swagger UI, no seguinte link: http://localhost:8080/swagger-ui/index.html#/
+
+Lembre-se de que a aplicação deve estar em execução para utilizar essa funcionalidade.
