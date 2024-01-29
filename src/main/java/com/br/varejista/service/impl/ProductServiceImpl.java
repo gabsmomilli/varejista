@@ -31,6 +31,35 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public Product findById(Integer id) {
+        Optional<Product> optionalProduct = repository.findById(id);
+        return optionalProduct.orElse(null);
+    }
+
+    @Override
+    public Product updateProduct(Integer id, Product updatedProduct) {
+        Optional<Product> optionalProduct = repository.findById(id);
+
+        if (optionalProduct.isPresent()) {
+            Product existingProduct = optionalProduct.get();
+
+            existingProduct.setName(updatedProduct.getName());
+            existingProduct.setDescription(updatedProduct.getDescription());
+            existingProduct.setPrice(updatedProduct.getPrice());
+            existingProduct.setSize(updatedProduct.getSize());
+            existingProduct.setQuantityInStock(updatedProduct.getQuantityInStock());
+            existingProduct.setColor(updatedProduct.getColor());
+            existingProduct.setCategory(updatedProduct.getCategory());
+            existingProduct.setBrand(updatedProduct.getBrand());
+            existingProduct.setDateRegister(updatedProduct.getDateRegister());
+
+            return repository.save(existingProduct);
+        } else {
+            return null;
+        }
+    }
+
+    @Override
     public List<Product> findAllByProductName(String nome) {
         return repository.findAllByProductName(nome);
     }
@@ -84,13 +113,13 @@ public class ProductServiceImpl implements ProductService {
         return products.stream().filter(
                 product ->
                         (name == null || product.getName().equals(name)) &&
-                        (description == null || product.getDescription().equals(description)) &&
-                        (price == null || product.getPrice().equals(price)) &&
+                                (description == null || product.getDescription().equals(description)) &&
+                                (price == null || product.getPrice().equals(price)) &&
                                 (size == null || product.getSize().equals(size)) &&
-                                        (quantityInStock == null || product.getQuantityInStock().equals(quantityInStock)) &&
-                                        (color == null || product.getColor().equals(color)) &&
-                                                (category == null || product.getCategory().equals(category)) &&
-                                                        (brand == null || product.getBrand().equals(brand)) &&
-                                                                (dateRegister == null || product.getDateRegister().equals(dateRegister))).collect(Collectors.toList());
+                                (quantityInStock == null || product.getQuantityInStock().equals(quantityInStock)) &&
+                                (color == null || product.getColor().equals(color)) &&
+                                (category == null || product.getCategory().equals(category)) &&
+                                (brand == null || product.getBrand().equals(brand)) &&
+                                (dateRegister == null || product.getDateRegister().equals(dateRegister))).collect(Collectors.toList());
     }
 }

@@ -48,6 +48,36 @@ public class ProductController {
         return ResponseEntity.status(HttpStatus.OK).build();
     }
 
+
+    @Operation(description = "Find product by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Product successfully found", content = @Content(schema = @Schema(implementation = Product.class)))
+    })
+    @GetMapping("/{id}")
+    public ResponseEntity<Product> findById(@PathVariable("id") Integer id) {
+        Product product = service.findById(id);
+        if (product != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(product);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
+    @Operation(description = "Update product by ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Product updated successfully", content = @Content(schema = @Schema(implementation = Product.class))),
+            @ApiResponse(responseCode = "404", description = "Product not found")
+    })
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable("id") Integer id, @RequestBody Product updatedProduct) {
+        Product updated = service.updateProduct(id, updatedProduct);
+        if (updated != null) {
+            return ResponseEntity.status(HttpStatus.OK).body(updated);
+        } else {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        }
+    }
+
     @Operation(description = "Find product by name")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Product successfully found", content = @Content(schema = @Schema(implementation = Product.class)))
