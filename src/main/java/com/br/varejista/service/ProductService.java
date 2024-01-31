@@ -7,6 +7,10 @@ import java.util.List;
 
 public interface ProductService extends GenericService<Product>{
 
+    Product findById(Integer id);
+
+    Product updateProduct(Integer id, Product updatedProduct);
+
     List<Product> findAllByProductName(final String name);
 
     List<Product> findAllByProductDescription(final String description);
